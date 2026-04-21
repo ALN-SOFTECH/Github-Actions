@@ -1,9 +1,7 @@
-name: my-first-workflow 
-
+name: sequence_wf_with_4_jobs
 on: push
-
-jobs:      # key word
-  job1:    # name of the job
+jobs:     
+  job1:    
    name: job1
    runs-on: ubuntu-latest 
    steps:    #steps being a list defined by (-)
@@ -24,24 +22,24 @@ jobs:      # key word
            echo "current time and Date"
         - name: calling sleep
           run:  sleep 20
-      
+
+
   job3:    
    name: job3
    needs: job1
-   runs-on: ubuntu-latest 
+   runs-on: windows-latest 
    steps:
      - name: job with single dependency
        run: sleep 10
-
+     - name: checking Runner info
+       shell: pwsh  # By default it will be executed Bash cmd
+       run: get-computerInfo
   job4:    
    name: job4
    needs: [job1,job2,job3]
-   runs-on: ubuntu-latest 
+   runs-on: MacOS-latest 
    steps:
      - name: job with multiple dependency
        run: sleep 10
-      
-
-        
-
-
+     - name: checking Runner info
+       run: sw_vers
