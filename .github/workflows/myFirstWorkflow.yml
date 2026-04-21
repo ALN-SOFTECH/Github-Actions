@@ -1,5 +1,10 @@
 name: sequence_wf_with_4_jobs
-on: push
+on: 
+ schedule:
+  - cron: "*/5 * * * *"
+ workflow_dispatch:
+ push:
+
 jobs:     
   job1:    
    name: job1
