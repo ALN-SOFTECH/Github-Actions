@@ -1,9 +1,7 @@
 name: sequence_wf_with_4_jobs
 on: 
  schedule:
-  - cron: "* * * * *"
- 
-
+  - cron: "5 * * * *"
 jobs:     
   job1:    
    name: job1
