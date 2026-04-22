@@ -20,6 +20,6 @@ jobs:
          hostname
       - name: Upload single file
         uses: actions/upload-artifact@v4
-          with:
+        with:
             name: single_file
             path: ./myartifact.txt
