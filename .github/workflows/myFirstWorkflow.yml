@@ -1,6 +1,9 @@
 on:
   push:
-
+   branches:
+    - dev
+    - feature-*
+    - main
 jobs:     
   job1:    
      name: job1
