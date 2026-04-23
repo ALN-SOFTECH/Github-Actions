@@ -2,10 +2,12 @@ on:
   push:
    branches:
     - main
+    - dev
 
   pull_request:
    branches:
     - main
+    - dev
 jobs:  # to run the unit test case
   unit-tests:
    name: Running Unit Tests
