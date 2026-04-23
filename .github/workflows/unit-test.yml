@@ -1,0 +1,29 @@
+on:
+  push:
+   branches:
+    - main
+    
+
+  pull_request:
+   branches:
+    - main
+    
+jobs:  # to run the unit test case
+  unit-tests:
+   name: Running Unit Tests
+   runs-on: Ubuntu-latest
+   steps:
+    - name: checkout Code
+      uses: actions/checkout@v5.0.0 # this we can get from market place
+    - name: Setup Python
+      uses: actions/setup-python@v6.0.0
+      with: 
+       python-version: '3.10'
+# now we will install dependences as per requirement.txt to install - Flask and pytest
+
+    - name: Install dependences
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    - name: Run Unit Tests
+      run: pytest -v
